@@ -1,0 +1,7 @@
+//? Những code có thuộc tính giống nhau nhưng khác giá trị, được dùng nhiều chỗ
+
+@mixin styleText($fs,$color,$fw){
+    font-size: $fs ;
+    font-weight: $fw ;
+    color: $color ;
+}

@@ -1,0 +1,36 @@
+.header_phone {
+    .navbar-brand {
+      @include styleText($fs-3, $color-blue-2, $fw-3);
+    }
+  
+    .nav-item {
+      .nav-link {
+        padding: 15px;
+        @include styleText($fs-2, $color-blue-1, $fw-2);
+        transition: all 0.2s;
+  
+        &::after {
+          content: "";
+          width: 100%;
+          height: 1px;
+          background-color: $color-blue-2;
+          display: block;
+          // Trước hover, x1 -> 100%, x2 -> 200%, x0 -> 0%
+          transform: scaleX(0);
+        }
+  
+        &:hover {
+          color: $color-blue-2;
+          &::after {
+            // Sau hover
+            transform: scaleX(1);
+            transition: all 0.3s;
+          }
+        }
+        // before (nằm ở trên chữ nên phải chỉnh thêm position), after dặt ngay ở dưới sẵn
+      }
+    }
+  }
+  
+  // .header_phone .nav-item .nav-link:hover
+  
