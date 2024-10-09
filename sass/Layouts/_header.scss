@@ -30,4 +30,28 @@
       // before (nằm ở trên chữ nên phải chỉnh thêm position), after dặt ngay ở dưới sẵn
     }
   }
+
+  // Add hover effect to Bootstrap cards to make them pop out on hover
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05); // Slightly increase the size of the card
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); // Add a shadow to create a pop-out effect
+    }
+  }
+
+  .carousel-item {
+    height: 400px; /* Adjust this based on the height you want */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .carousel-item img {
+    height: 300px;
+    width: auto;
+    margin: auto;
+  }
+
+ 
 }
