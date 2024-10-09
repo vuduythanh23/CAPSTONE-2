@@ -75,9 +75,7 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Details</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="#">Shopping Cart</a>
               </li>
@@ -95,11 +93,16 @@
 
     <section class="carousel_shoe">
       <!-- Carousel structure -->
-<div id="shoeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-  <div class="carousel-inner" id="carousel-images">
-      <!-- Carousel items will be injected here by JavaScript -->
-  </div>
-</div>
+      <div
+        id="shoeCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="4000"
+      >
+        <div class="carousel-inner" id="carousel-images">
+          <!-- Carousel items will be injected here by JavaScript -->
+        </div>
+      </div>
     </section>
 
     <!-- Show all products filtered by Brand Here !!!  -->
@@ -142,6 +145,52 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <!-- Modal Structure with Extra-Large Size and Centered Image -->
+      <div
+        class="modal fade"
+        id="shoeInfoModal"
+        tabindex="-1"
+        aria-labelledby="shoeInfoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <!-- Larger modal size -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-shoe-name">Shoe Name</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body text-center">
+              <!-- Center text (including image) -->
+              <img
+                id="modal-shoe-image"
+                class="img-fluid mb-3 d-block mx-auto"
+                src=""
+                alt="Shoe Image"
+              />
+              <p><strong>Price: </strong><span id="modal-shoe-price"></span></p>
+              <p id="modal-shoe-description"></p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer></footer>
 
     <!-- Bootstrap JavaScript Libraries -->
@@ -157,13 +206,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Font Nunito Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Font Josefin Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <!-- Axios API  -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 
