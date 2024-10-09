@@ -41,17 +41,58 @@
     }
   }
 
+  
+
   .carousel-item {
-    height: 400px; /* Adjust this based on the height you want */
-    background-size: cover;
-    background-position: center;
-  }
-
-  .carousel-item img {
-    height: 300px;
-    width: auto;
-    margin: auto;
-  }
-
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+      .carousel-item img {
+        width: 100%; /* Adjust as necessary */
+        height: 200px;
+        object-fit: contain;
+        padding: 10px;
+      }
  
+      
+}
+
+/* Style for the shoe name */
+#modal-shoe-name {
+  font-size: 1.8rem; /* Increase the font size */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Change the color for highlighting */
+  text-align: center; /* Center the text */
+}
+
+/* Style for the price */
+#modal-shoe-price {
+  font-size: 1.5rem; /* Increase the font size */
+  font-weight: bold; /* Make the text bold */
+  color: #28a745; /* Highlight the price with a green color */
+  text-align: center; /* Center the text */
+}
+
+/* Style for the description */
+#modal-shoe-description {
+  font-size: 1.2rem; /* Increase the font size */
+  font-weight: bold; /* Normal weight for description */
+  color: #555; /* Slightly darker gray for highlighting */
+  text-align: justify; /* Justify the text for readability */
+  margin-top: 10px; /* Add some space above the description */
+}
+
+/* Ensure buttons align vertically and maintain gap */
+.card-body {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center the buttons */
+}
+
+.card-body .btn {
+  margin-bottom: 15px; /* Add gap between the buttons */
+}
+
+.card-body .btn:last-child {
+  margin-bottom: 0; /* Remove margin from the last button */
 }
