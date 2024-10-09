@@ -17,7 +17,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    
+
     <!-- (Optional) Use CSS or JS implementation -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
@@ -25,7 +25,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link
@@ -34,8 +33,19 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    
-    
+
+    <style>
+      .carousel-item {
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+      .carousel-item img {
+        width: 100%; /* Adjust as necessary */
+        height: 200px;
+        object-fit: contain;
+        padding: 10px;
+      }
+    </style>
   </head>
 
   <body>
@@ -45,9 +55,9 @@
              container: margin auto -->
         <div class="container">
           <div>
-          <!-- LOGO -->
-          <a class="navbar-brand" href="#">CyberShoes</a>
-        </div>
+            <!-- LOGO -->
+            <a class="navbar-brand" href="#">CyberShoes</a>
+          </div>
           <!-- Button ở mobile -->
           <button
             class="navbar-toggler"
@@ -83,8 +93,55 @@
       </nav>
     </header>
 
-    <section class="carousel_phone"></section>
-    <section class="product"></section>
+    <section class="carousel_shoe">
+      <!-- Carousel structure -->
+<div id="shoeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+  <div class="carousel-inner" id="carousel-images">
+      <!-- Carousel items will be injected here by JavaScript -->
+  </div>
+</div>
+    </section>
+
+    <!-- Show all products filtered by Brand Here !!!  -->
+    <section class="product">
+      <div class="container mt-5">
+        <!-- Brand filter options -->
+        <div class="mb-4">
+          <button
+            class="btn btn-outline-primary"
+            onclick="filterByBrand('nike')"
+          >
+            Nike
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            onclick="filterByBrand('adidas')"
+          >
+            Adidas
+          </button>
+          <button
+            class="btn btn-outline-danger"
+            onclick="filterByBrand('vans')"
+          >
+            Vans
+          </button>
+          <button
+            class="btn btn-outline-primary"
+            onclick="filterByBrand('converse')"
+          >
+            Converse
+          </button>
+          <button class="btn btn-outline-dark" onclick="filterByBrand('all')">
+            All
+          </button>
+        </div>
+
+        <!-- Container for shoe cards -->
+        <div id="shoe-list" class="row">
+          <!-- Cards will be inserted here -->
+        </div>
+      </div>
+    </section>
     <footer></footer>
 
     <!-- Bootstrap JavaScript Libraries -->
@@ -107,6 +164,11 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
       rel="stylesheet"
     />
+    <!-- Axios API  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+
+    <!-- mainAPI  -->
+    <script src="./js/mainAPI.js"></script>
 
     <!-- Độ ưu tiên cao, dễ đè được code của các thư viện  -->
     <link rel="stylesheet" href="./css/main.css" />

@@ -33,4 +33,21 @@ body {
 .header_shoe .nav-item .nav-link:hover::after {
   transform: scaleX(1);
   transition: all 0.5s;
+}
+.header_shoe .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.header_shoe .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.header_shoe .carousel-item {
+  height: 400px; /* Adjust this based on the height you want */
+  background-size: cover;
+  background-position: center;
+}
+.header_shoe .carousel-item img {
+  height: 300px;
+  width: auto;
+  margin: auto;
 }/*# sourceMappingURL=main.css.map */
