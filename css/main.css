@@ -81,20 +81,29 @@ body {
     color: red;
 }
 
-.footer-section {
-    background-color: #f5f5f5;
-    padding: 40px 0;
+footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
-.footer-section h5 {
-    font-weight: bold;
+footer .column {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    text-align: left;
 }
 
-.footer-section a {
-    color: #d9534f;
-}
-
-.footer-section a:hover {
+footer a {
+    display: block;
     text-decoration: none;
-    color: #a94442;
+    color: black;
+    margin: 5px 0;
+}
+
+footer .column h4 {
+    margin-bottom: 10px;
 }
