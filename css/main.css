@@ -42,48 +42,13 @@ body {
 
 /*# sourceMappingURL=main.css.map */
 
-.container h2 {
-    font-size: 2.8rem;
-}
-
-.form-row {
-    font-size: 1.5rem;
-}
-
-.form-control {
-    border: none;
-    border-bottom: 2px solid #A020F0;
-    border-radius: 0;
-}
-
-.form-control:focus {
-    box-shadow: none;
-    border-color: #A020F0;
-}
-
-.btn-custom {
-    background-color: #A020F0;
-    color: white;
-    border-radius: 0;
-}
-
-.btn-custom:hover {
-    background-color: #8B008B;
-    color: white;
-}
-
-.form-check-input:checked {
-    background-color: #A020F0;
-    border-color: #A020F0;
-}
-
-.required {
-    color: red;
+footer {
+    position: static;
+    /* Đảm bảo footer không ở vị trí cố định */
 }
 
 footer {
-    background-color: #f1f1f1;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -91,19 +56,30 @@ footer {
 }
 
 footer .column {
-    display: inline-block;
     width: 30%;
     vertical-align: top;
     text-align: left;
+    display: inline-block;
+    justify-content: space-around;
 }
 
 footer a {
     display: block;
     text-decoration: none;
-    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #656774;
     margin: 5px 0;
 }
 
 footer .column h4 {
     margin-bottom: 10px;
+}
+
+
+/* Liên kết mặc định */
+
+.row a:hover {
+    color: #2a73dd;
+    text-decoration: underline;
 }

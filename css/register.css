@@ -1,0 +1,44 @@
+.container h2 {
+    font-size: 2.8rem;
+}
+
+.form-row {
+    font-size: 1.5rem;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 2px solid #A020F0;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #A020F0;
+}
+
+
+/* Nút mặc định */
+
+.btn-primary {
+    background-color: #2a73dd;
+    /* Màu nền mặc định là #2a73dd */
+    border-color: #2a73dd;
+    /* Màu viền cùng màu với nền */
+    color: white;
+    /* Màu chữ là trắng */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* Hiệu ứng chuyển màu */
+}
+
+
+/* Hover state (khi di chuột qua nút) */
+
+.btn-primary:hover {
+    background-color: #1a5bbd;
+    /* Màu khi hover (màu xanh đậm hơn #2a73dd) */
+    border-color: #1a5bbd;
+    /* Màu viền khi hover */
+    color: white;
+    /* Màu chữ vẫn giữ nguyên */
+}

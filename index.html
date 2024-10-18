@@ -1,130 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Title</title>
+
+<head>
+    <title>CyberShoes</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/png">
+
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- FontAwesome 6.2.0 CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
-    
+
     <!-- (Optional) Use CSS or JS implementation -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
-      integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Bootstrap CSS v5.2.1 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    
-    
-  </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
-  <body>
-    <header class="header_phone">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <!-- Container fluid là không có margin, full -w 100%
+    <style>
+        .carousel-item {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            /* Adjust as necessary */
+            height: 200px;
+            object-fit: contain;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header_shoe">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <!-- Container fluid là không có margin, full -w 100%
              container: margin auto -->
-        <div class="container">
-          <!-- LOGO -->
-          <a class="navbar-brand" href="#">CyberShoes</a>
-          <!-- Button ở mobile -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            <div class="container">
+                <div>
+                    <!-- LOGO -->
+                    <a class="navbar-brand" href="#">CyberShoes</a>
+                </div>
+                <!-- Button ở mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Shopping Cart</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
-              </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li> -->
-              <!-- <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li> -->
-            </ul>
-            <!-- <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
-          </div>
-        </div>
-      </nav>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Shopping Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <section class="carousel_phone"></section>
-    <section class="product"></section>
+    <section class="carousel_shoe">
+        <!-- Carousel structure -->
+        <div id="shoeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner" id="carousel-images">
+                <!-- Carousel items will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Show all products filtered by Brand Here !!!  -->
+    <section class="product">
+        <div class="container mt-5">
+            <!-- Brand filter options -->
+            <div class="mb-4 button-container">
+                <button class="btn btn-outline-primary btn-with-logo" onclick="filterByBrand('nike')">
+    <img src="./img/nike.svg.svg" alt="Nike Logo">
+    Nike
+  </button>
+                <button class="btn btn-outline-secondary btn-with-logo" onclick="filterByBrand('adidas')">
+    <img src="./img/adidas.svg.svg" alt="Adidas Logo">
+    Adidas
+  </button>
+                <button class="btn btn-outline-danger btn-with-logo" onclick="filterByBrand('vans')">
+    <img src="./img/vans-5.svg" alt="Vans Logo">
+    Vans
+  </button>
+                <button class="btn btn-outline-info btn-with-logo" onclick="filterByBrand('converse')">
+    <img src="./img/converse-logo-1.svg" alt="Converse Logo">
+    Converse
+  </button>
+                <button class="btn btn-outline-success" onclick="filterByBrand('all')">
+    <i class="fa-solid fa-globe"></i>
+    All
+  </button>
+            </div>
+
+            <!-- Add the following CSS to style the button alignment and spacing -->
+            <style>
+                /* Flex container for horizontal button alignment with gaps */
+                
+                .button-container {
+                    display: flex;
+                    justify-content: start;
+                    /* Aligns buttons evenly with space between them */
+                    gap: 10px;
+                    /* Controls the space between the buttons */
+                    flex-wrap: wrap;
+                    /* Allows wrapping if the screen is smaller */
+                }
+                /* Flexbox inside each button for aligning the logo and text */
+                
+                .btn-with-logo {
+                    display: flex;
+                    align-items: center;
+                    /* Vertically aligns the logo and text */
+                    justify-content: center;
+                    /* Centers the logo and text inside the button */
+                }
+                /* Style for logos inside buttons */
+                
+                .btn-with-logo img {
+                    width: 30px;
+                    /* Adjust logo size */
+                    height: auto;
+                    margin-right: 8px;
+                    /* Add space between the logo and text */
+                }
+                /* Optional: Adjust icon size for the "All" button */
+                
+                .btn-outline-success i {
+                    margin-right: 8px;
+                    /* Space between the icon and text */
+                }
+            </style>
+
+
+
+            <!-- Container for shoe cards -->
+            <div id="shoe-list" class="row">
+                <!-- Cards will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <!-- Modal Structure with Extra-Large Size and Centered Image -->
+        <div class="modal fade" id="shoeInfoModal" tabindex="-1" aria-labelledby="shoeInfoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <!-- Larger modal size -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-shoe-name">Shoe Name</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <!-- Center text (including image) -->
+                        <img id="modal-shoe-image" class="img-fluid mb-3 d-block mx-auto" src="" alt="Shoe Image" />
+                        <p><strong>Price: </strong><span id="modal-shoe-price"></span></p>
+                        <p id="modal-shoe-description"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer></footer>
 
     <!-- Bootstrap JavaScript Libraries -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-    <!-- Font Nunito Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Font Josefin Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <!-- Axios API  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+
+    <!-- mainAPI  -->
+    <script src="./js/mainAPI.js"></script>
+    <script src="js/main.js"></script>
 
     <!-- Độ ưu tiên cao, dễ đè được code của các thư viện  -->
     <link rel="stylesheet" href="./css/main.css" />
-  </body>
+</body>
+
 </html>
