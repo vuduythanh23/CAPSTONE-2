@@ -76,7 +76,7 @@
 
     <div class="container mt-5">
         <h2 class="text-center">Register</h2>
-        <form>
+        <form id="registerForm">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="email" class="form-label">Email <span class="required">(*)</span></label>
@@ -115,15 +115,34 @@
 
                 </div>
             </div>
-            <div class="d-flex justify-content-md-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary w-100 my-3">Register</button>
+            <div class="text-center mt-3">
+                <p>Already have an account? <a href="login.html">Login</a></p>
             </div>
-
         </form>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content justify-content-center align-content-center">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Registration successfully</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Congratulations! Your registration was successful.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
-    <footer class="py-4">
+    <footer class="py-2">
         <div class="container">
             <div class="row text-start">
                 <!-- GET HELP Column -->

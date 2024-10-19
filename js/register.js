@@ -1,6 +1,4 @@
-//Validation 
-
-document.querySelector('form').addEventListener('submit', function(e) {
+document.getElementById("registerForm").addEventListener("submit", function(e) {
     e.preventDefault(); // Prevent form submission until validation passes
 
     // Get form elements
@@ -74,9 +72,19 @@ document.querySelector('form').addEventListener('submit', function(e) {
         isValid = false;
     }
 
-    // If all fields are valid, submit the form
+    // If all validations pass
     if (isValid) {
-        alert('Form submitted successfully!');
-        e.target.submit(); // Manually submit the form
+        // Show success modal
+        var successModal = new bootstrap.Modal(document.getElementById('successModal'), {
+            keyboard: false
+        });
+        successModal.show();
+
+        // Save user info to localStorage
+        const user = {
+            email: email.value,
+            password: password.value
+        };
+        localStorage.setItem("user", JSON.stringify(user));
     }
 });
