@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Your Cart</title>
+  <link rel="icon" href="./img/favicon.ico" type="image/png" />
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- FontAwesome 6.2.0 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+   <!-- Google Fonts: Josefin Sans (Apply consistently) -->
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+
+  <style>
+     body {
+      font-family: 'Josefin Sans', sans-serif; /* Ensure Josefin Sans is applied */
+    }
+
+    /* Larger table font size and padding */
+    .table {
+      font-size: 1.2rem; /* Increase font size */
+    }
+
+    .table td, .table th {
+      padding: 20px;
+      vertical-align: middle; /* Ensure vertical alignment */
+    }
+
+    /* Larger product images */
+    table img {
+      width: 80px;
+    }
+
+    /* Adjust quantity buttons size */
+    .quantity-buttons .btn {
+      padding: 4px 12px;
+      font-size: 1rem;
+    }
+
+    /* Center the quantity buttons */
+    .quantity-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center-align buttons */
+    }
+
+    /* Adjust size of quantity number */
+    .quantity-buttons span {
+      padding: 6px 14px;
+      background-color: white;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      display: inline-block;
+      min-width: 40px;
+      text-align: center; /* Center-align the number */
+    }
+
+    /* Center the action buttons */
+    .action-buttons {
+      text-align: center; /* Center-align the delete button */
+    }
+
+    /* Total price and buttons */
+    .total-price {
+      font-size: 1.4rem;
+    }
+
+    .btn-primary {
+      font-size: 1.2rem; /* Larger button text */
+    }
+    
+    
+  </style>
+</head>
+
+<body>
+  <header class="header_shoe">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <!-- Container fluid là không có margin, full -w 100%
+           container: margin auto -->
+      <div class="container">
+        <div>
+          <!-- LOGO -->
+          <a class="navbar-brand" href="#">CyberShoes</a>
+        </div>
+        <!-- Button ở mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./register.html">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cart.html"
+                ><i class="fa-solid fa-cart-shopping"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container mt-5">
+    <h2>Your Cart</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cart-list">
+        <!-- Cart items will be dynamically added here -->
+      </tbody>
+    </table>
+    <div class="mt-4">
+      <h4 class="total-price">Total Price: $<span id="total-price">0</span></h4>
+      <button class="btn btn-primary">Proceed to Payment</button>
+    </div>
+  </section>
+
+  <script>
+    // Function to convert text to title case
+    function toTitleCase(str) {
+      return str.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    // Function to fetch cart items from localStorage and display them
+    function renderCart() {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartList = document.getElementById('cart-list');
+      const totalPriceEl = document.getElementById('total-price');
+      cartList.innerHTML = ''; // Clear existing rows
+
+      let totalPrice = 0;
+
+      cartItems.forEach((item, index) => {
+        const row = document.createElement('tr');
+        const totalItemPrice = item.price * item.quantity;
+
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td><img src="${item.image}" alt="${item.name}"></td>
+          <td>${toTitleCase(item.name)}</td>
+          <td>$${item.price}</td>
+          <td class="quantity-buttons">
+            <div class="btn-group" role="group" aria-label="Quantity">
+              <button class="btn btn-primary btn-sm" onclick="updateQuantity(${index}, 1)">+</button>
+              <span class="btn btn-light btn-sm">${item.quantity}</span>
+              <button class="btn btn-primary btn-sm" onclick="updateQuantity(${index}, -1)">-</button>
+            </div>
+          </td>
+          <td>$${totalItemPrice}</td>
+          <td class="action-buttons"><button class="btn btn-danger btn-sm" onclick="deleteItem(${index})">Delete</button></td>
+        `;
+
+        cartList.appendChild(row);
+
+        totalPrice += totalItemPrice;
+      });
+
+      totalPriceEl.innerText = totalPrice;
+    }
+
+    // Update item quantity in the cart
+    function updateQuantity(index, change) {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems[index].quantity += change;
+
+      if (cartItems[index].quantity < 1) {
+        cartItems[index].quantity = 1; // Ensure the quantity can't go below 1
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      renderCart(); // Re-render cart after updating quantity
+    }
+
+    // Delete an item from the cart
+    function deleteItem(index) {
+      let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.splice(index, 1); // Remove item from the array
+
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      renderCart(); // Re-render cart after deleting item
+    }
+
+    // Load cart on page load
+    window.onload = renderCart;
+  </script>
+
+  <footer></footer>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+  <!-- Main API -->
+  <script src="./js/mainAPI.js"></script>
+  <!-- High-priority CSS file -->
+  <link rel="stylesheet" href="./css/main.css" />
+</body>
+</html>
