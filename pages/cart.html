@@ -11,94 +11,101 @@
   <!-- FontAwesome 6.2.0 CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Bootstrap CSS v5.2.1 -->
+  <!-- Bootstrap CSS v5.3.2 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
-   <!-- Google Fonts: Josefin Sans (Apply consistently) -->
-   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Josefin Sans (Apply consistently) -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
   <style>
-     body {
-      font-family: 'Josefin Sans', sans-serif; /* Ensure Josefin Sans is applied */
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+    }
+    .position-relative {
+      position: relative;
     }
 
-    /* Larger table font size and padding */
-    .table {
-      font-size: 1.2rem; /* Increase font size */
+    #cart-count {
+      font-size: 1rem;
+      padding: 0.5em 0.6em;
+      color: white;
+    }
+    .table-responsive {
+      overflow-x: auto;
     }
 
-    .table td, .table th {
-      padding: 20px;
-      vertical-align: middle; /* Ensure vertical alignment */
-    }
-
-    /* Larger product images */
     table img {
-      width: 80px;
+      max-width: 80px;
+      width: 100%;
+      height: auto;
     }
 
-    /* Adjust quantity buttons size */
+    .quantity-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .quantity-buttons .btn {
       padding: 4px 12px;
       font-size: 1rem;
     }
 
-    /* Center the quantity buttons */
-    .quantity-buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center; /* Center-align buttons */
-    }
-
-    /* Adjust size of quantity number */
     .quantity-buttons span {
       padding: 6px 14px;
       background-color: white;
       border: 1px solid #ddd;
       font-size: 1rem;
-      display: inline-block;
       min-width: 40px;
-      text-align: center; /* Center-align the number */
+      text-align: center;
     }
 
-    /* Center the action buttons */
     .action-buttons {
-      text-align: center; /* Center-align the delete button */
+      text-align: center;
     }
 
-    /* Total price and buttons */
     .total-price {
       font-size: 1.4rem;
+      text-align: right;
     }
 
     .btn-primary {
-      font-size: 1.2rem; /* Larger button text */
+      font-size: 1.2rem;
+      padding: 10px 20px;
     }
-    
-    
+
+    @media (max-width: 768px) {
+      .table th:nth-child(1), 
+      .table td:nth-child(1) {
+        display: none;
+      }
+
+      .table img {
+        max-width: 60px;
+      }
+
+      .total-price {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+
+      .btn-primary {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header class="header_shoe">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <!-- Container fluid là không có margin, full -w 100%
-           container: margin auto -->
       <div class="container">
-        <div>
-          <!-- LOGO -->
-          <a class="navbar-brand" href="#">CyberShoes</a>
-        </div>
-        <!-- Button ở mobile -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand" href="#">CyberShoes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -112,10 +119,17 @@
             <li class="nav-item">
               <a class="nav-link" href="./register.html">Register</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./cart.html"
-                ><i class="fa-solid fa-cart-shopping"></i
-              ></a>
+            <li class="nav-item position-relative">
+              <a class="nav-link" href="#">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <!-- Badge to show the cart item count -->
+                <span
+                  id="cart-count"
+                  class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  0
+                </span>
+              </a>
             </li>
           </ul>
         </div>
@@ -125,32 +139,73 @@
 
   <section class="container mt-5">
     <h2>Your Cart</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="cart-list">
-        <!-- Cart items will be dynamically added here -->
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="cart-list">
+          <!-- Cart items will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
     <div class="mt-4">
       <h4 class="total-price">Total Price: $<span id="total-price">0</span></h4>
-      <button class="btn btn-primary">Proceed to Payment</button>
+      <button id="proceedToPayment" class="btn btn-primary">Proceed to Payment</button>
     </div>
   </section>
 
+  <!-- SweetAlert2 JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
+    // SweetAlert2 confirmation popup when clicking "Proceed to Payment"
+    document.getElementById('proceedToPayment').addEventListener('click', function() {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to proceed to payment?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, proceed',
+        cancelButtonText: 'No, cancel',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Confirmed!',
+            'Please check your email to track your order',
+            'success'
+          )
+          // Redirect to payment page here
+          // window.location.href = '/payment';
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire(
+            'Cancelled',
+            'Your order has not been processed yet :")',
+            'error'
+          )
+        }
+      })
+    })
+
     // Function to convert text to title case
     function toTitleCase(str) {
       return str.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    // Function to update cart count displayed on the cart icon
+    function updateCartCount() {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0); // Sum all quantities
+      document.getElementById('cart-count').textContent = cartCount;
     }
 
     // Function to fetch cart items from localStorage and display them
@@ -188,6 +243,9 @@
       });
 
       totalPriceEl.innerText = totalPrice;
+
+      // Update the cart count whenever the cart is rendered
+      updateCartCount();
     }
 
     // Update item quantity in the cart
@@ -212,19 +270,19 @@
       renderCart(); // Re-render cart after deleting item
     }
 
-    // Load cart on page load
-    window.onload = renderCart;
+    // Load cart and update cart count on page load
+    window.onload = function() {
+      renderCart();
+      updateCartCount(); // Ensure the cart count is updated immediately
+    };
   </script>
-
-  <footer></footer>
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-
+  
   <!-- Main API -->
   <script src="./js/mainAPI.js"></script>
-  <!-- High-priority CSS file -->
   <link rel="stylesheet" href="../css/main.css" />
 </body>
 </html>

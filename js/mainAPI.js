@@ -127,5 +127,42 @@ function addToCart(product) {
   }
 
   localStorage.setItem('cart', JSON.stringify(cartItems)); // Save updated cart
-  alert(`${product.name} has been added to the cart`);
+  
+  // Update cart count instantly after adding to cart
+  updateCartCount();
+
+  // Use SweetAlert2 to display a confirmation message
+  Swal.fire({
+    title: 'Added to Cart!',
+    text: `"${toTitleCase(product.name)}" has been added to your shopping cart.`,
+    icon: 'success',
+    showCancelButton: true, // Show the second button
+    confirmButtonText: 'Go to Cart', // Button for redirecting to the cart page
+    cancelButtonText: 'Continue Shopping' // Button for closing the popup
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Redirect to the shopping cart page if "Go to Cart" is clicked
+      window.location.href = '/pages/cart.html'; // Replace '/cart' with the actual URL of your cart page
+    }
+  });
+}
+
+// Function to update cart count displayed on the cart icon
+function updateCartCount() {
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0); // Sum all quantities
+  document.getElementById('cart-count').textContent = cartCount;
+}
+
+// Call this function on page load to update the cart count immediately
+window.onload = function() {
+  updateCartCount();
+};
+
+// Similarly, when deleting an item:
+function deleteItem(index) {
+  let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  cartItems.splice(index, 1); // Remove the item from the array
+  localStorage.setItem('cart', JSON.stringify(cartItems));
+  updateCartCount(); // Update the count after deleting the item
 }

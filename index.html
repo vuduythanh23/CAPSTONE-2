@@ -47,6 +47,15 @@
         object-fit: contain;
         padding: 10px;
       }
+      .position-relative {
+        position: relative;
+      }
+
+      #cart-count {
+        font-size: 1rem;
+        padding: 0.5em 0.6em;
+        color: white;
+      }
     </style>
   </head>
 
@@ -75,7 +84,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./pages/login.html">Login</a>
@@ -83,10 +97,17 @@
               <li class="nav-item">
                 <a class="nav-link" href="./pages/register.html">Register</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/cart.html"
-                  ><i class="fa-solid fa-cart-shopping"></i
-                ></a>
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="./pages/cart.html">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <!-- Badge to show the cart item count -->
+                  <span
+                    id="cart-count"
+                    class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger"
+                  >
+                    0
+                  </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -259,6 +280,8 @@
 
     <!-- mainAPI  -->
     <script src="./js/mainAPI.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Độ ưu tiên cao, dễ đè được code của các thư viện  -->
     <link rel="stylesheet" href="./css/main.css" />
