@@ -594,9 +594,10 @@ svg {
           <td>$${item.price}</td>
           <td class="quantity-buttons">
             <div class="btn-group" role="group" aria-label="Quantity">
-              <button class="btn btn-primary btn-sm" onclick="updateQuantity(${index}, 1)">+</button>
-              <span class="btn btn-light btn-sm">${item.quantity}</span>
               <button class="btn btn-primary btn-sm" onclick="updateQuantity(${index}, -1)">-</button>
+              <span class="btn btn-light btn-sm">${item.quantity}</span>
+              <button class="btn btn-primary btn-sm" onclick="updateQuantity(${index}, 1)">+</button>
+              
             </div>
           </td>
           <td>$${totalItemPrice}</td>
