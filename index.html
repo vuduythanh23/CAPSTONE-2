@@ -182,7 +182,7 @@
         color: var(--light);
       }
     </style>
-     <style>
+    <style>
       /* Fullscreen video background */
       .background-video {
         position: fixed;
@@ -202,7 +202,8 @@
       }
 
       /* Additional styling for demo */
-      body, html {
+      body,
+      html {
         margin: 0;
         padding: 0;
         overflow-x: hidden; /* Prevent horizontal scroll */
@@ -216,7 +217,14 @@
   </head>
 
   <body>
-    <video class="background-video" muted autoplay loop src="https://cdn.shopify.com/s/files/1/0526/6905/5172/t/5/assets/footer.mp4?v=29581141968431347981633714450" type="video/mp4"></video>
+    <video
+      class="background-video"
+      muted
+      autoplay
+      loop
+      src="https://cdn.shopify.com/s/files/1/0526/6905/5172/t/5/assets/footer.mp4?v=29581141968431347981633714450"
+      type="video/mp4"
+    ></video>
     <header class="header_shoe">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <!-- Container fluid là không có margin, full -w 100%
@@ -275,7 +283,6 @@
     <section class="carousel_shoe">
       <!-- Carousel structure -->
       <div
-      
         id="shoeCarousel"
         class="carousel slide"
         data-bs-ride="carousel"
@@ -284,85 +291,85 @@
         <div class="carousel-inner" id="carousel-images">
           <!-- Carousel items will be injected here by JavaScript -->
         </div>
-      </div>
-    </section>
+        <!-- Show all products filtered by Brand Here !!!  -->
+        <section class="product">
+          <div class="container mt-5">
+            <!-- Brand filter options -->
+            <div class="mb-4 button-container">
+              <button
+                class="btn btn-outline-primary btn-with-logo"
+                onclick="filterByBrand('nike')"
+              >
+                <img src="./img/nike.svg.svg" alt="Nike Logo" />
+                Nike
+              </button>
+              <button
+                class="btn btn-outline-secondary btn-with-logo"
+                onclick="filterByBrand('adidas')"
+              >
+                <img src="./img/adidas.svg.svg" alt="Adidas Logo" />
+                Adidas
+              </button>
+              <button
+                class="btn btn-outline-danger btn-with-logo"
+                onclick="filterByBrand('vans')"
+              >
+                <img src="./img/vans-5.svg" alt="Vans Logo" />
+                Vans
+              </button>
+              <button
+                class="btn btn-outline-info btn-with-logo"
+                onclick="filterByBrand('converse')"
+              >
+                <img src="./img/converse-logo-1.svg" alt="Converse Logo" />
+                Converse
+              </button>
+              <button
+                class="btn btn-outline-success btn-with-logo"
+                onclick="filterByBrand('all')"
+              >
+                <i class="fa-solid fa-globe"></i>
+                All
+              </button>
+            </div>
 
-    <!-- Show all products filtered by Brand Here !!!  -->
-    <section class="product">
-      <div class="container mt-5">
-        <!-- Brand filter options -->
-        <div class="mb-4 button-container">
-          <button
-            class="btn btn-outline-primary btn-with-logo"
-            onclick="filterByBrand('nike')"
-          >
-            <img src="./img/nike.svg.svg" alt="Nike Logo" />
-            Nike
-          </button>
-          <button
-            class="btn btn-outline-secondary btn-with-logo"
-            onclick="filterByBrand('adidas')"
-          >
-            <img src="./img/adidas.svg.svg" alt="Adidas Logo" />
-            Adidas
-          </button>
-          <button
-            class="btn btn-outline-danger btn-with-logo"
-            onclick="filterByBrand('vans')"
-          >
-            <img src="./img/vans-5.svg" alt="Vans Logo" />
-            Vans
-          </button>
-          <button
-            class="btn btn-outline-info btn-with-logo"
-            onclick="filterByBrand('converse')"
-          >
-            <img src="./img/converse-logo-1.svg" alt="Converse Logo" />
-            Converse
-          </button>
-          <button
-            class="btn btn-outline-success"
-            onclick="filterByBrand('all')"
-          >
-            <i class="fa-solid fa-globe"></i>
-            All
-          </button>
-        </div>
+            <!-- Add the following CSS to style the button alignment and spacing -->
+            <style>
+              /* Flex container for horizontal button alignment with gaps */
+              .button-container {
+                display: flex;
+                justify-content: start; /* Aligns buttons evenly with space between them */
+                gap: 10px; /* Controls the space between the buttons */
+                flex-wrap: wrap; /* Allows wrapping if the screen is smaller */
+              }
 
-        <!-- Add the following CSS to style the button alignment and spacing -->
-        <style>
-          /* Flex container for horizontal button alignment with gaps */
-          .button-container {
-            display: flex;
-            justify-content: start; /* Aligns buttons evenly with space between them */
-            gap: 10px; /* Controls the space between the buttons */
-            flex-wrap: wrap; /* Allows wrapping if the screen is smaller */
-          }
+              /* Flexbox inside each button for aligning the logo and text */
+              .btn-with-logo {
+                display: flex;
+                align-items: center; /* Vertically aligns the logo and text */
+                justify-content: center; /* Centers the logo and text inside the button */
+                background-color: whitesmoke;
+              }
 
-          /* Flexbox inside each button for aligning the logo and text */
-          .btn-with-logo {
-            display: flex;
-            align-items: center; /* Vertically aligns the logo and text */
-            justify-content: center; /* Centers the logo and text inside the button */
-          }
+              /* Style for logos inside buttons */
+              .btn-with-logo img {
+                width: 30px; /* Adjust logo size */
+                height: auto;
+                margin-right: 8px; /* Add space between the logo and text */
+              }
 
-          /* Style for logos inside buttons */
-          .btn-with-logo img {
-            width: 30px; /* Adjust logo size */
-            height: auto;
-            margin-right: 8px; /* Add space between the logo and text */
-          }
+              /* Optional: Adjust icon size for the "All" button */
+              .btn-outline-success i {
+                margin-right: 8px; /* Space between the icon and text */
+              }
+            </style>
 
-          /* Optional: Adjust icon size for the "All" button */
-          .btn-outline-success i {
-            margin-right: 8px; /* Space between the icon and text */
-          }
-        </style>
-
-        <!-- Container for shoe cards -->
-        <div id="shoe-list" class="row">
-          <!-- Cards will be inserted here -->
-        </div>
+            <!-- Container for shoe cards -->
+            <div id="shoe-list" class="row">
+              <!-- Cards will be inserted here -->
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
