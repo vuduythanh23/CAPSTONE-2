@@ -16,3 +16,6 @@ build/
 
 # Optional: Ignore environment variables file (if you use one)
 .env
+
+#Ignor .vscode file
+.vscode
